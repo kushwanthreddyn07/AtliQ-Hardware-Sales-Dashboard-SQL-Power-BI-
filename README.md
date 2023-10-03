@@ -36,17 +36,17 @@ SELECT * FROM cte1 c1 LEFT JOIN fact_pre_invoice_deductions pr USING(customer_co
 
 
 
-**with cte1 as (SELECT s.date,s.fiscal_year,s.product_code,s.customer_code,s.sold_quantity,e.forecast_quantity FROM fact_sales_monthly s LEFT JOIN fact_act_est e USING(fiscal_year,product_code,customer_code)),
-cte2 as (SELECT * FROM cte1 c1 LEFT JOIN fact_pre_invoice_deductions pr USING(customer_code,fiscal_year))
+**with cte1 as (SELECT s.date,s.fiscal_year,s.product_code,s.customer_code,s.sold_quantity,e.forecast_quantity FROM fact_sales_monthly s LEFT JOIN fact_act_est e USING(fiscal_year,product_code,customer_code)),  
+cte2 as (SELECT * FROM cte1 c1 LEFT JOIN fact_pre_invoice_deductions pr USING(customer_code,fiscal_year))  
 SELECT * FROM cte2 c2 LEFT JOIN fact_post_invoice_deductions pd USING(date,product_code,customer_code)**
 
 *--Joining cte2(previously joined table) and fact_post_invoice_deductions tables to fetch discount_pct and other_deductions_pct of products. Performing left join to fetch all transactions from the left table*
 
 
 
-**with cte1 as (SELECT s.date,s.fiscal_year,s.product_code,s.customer_code,s.sold_quantity,e.forecast_quantity FROM fact_sales_monthly s LEFT JOIN fact_act_est e USING(fiscal_year,product_code,customer_code)),
-cte2 as (SELECT * FROM cte1 c1 LEFT JOIN fact_pre_invoice_deductions pr USING(customer_code,fiscal_year)),
-cte3 as (SELECT * FROM cte2 c2 LEFT JOIN fact_post_invoice_deductions pd USING(date,product_code,customer_code))
+**with cte1 as (SELECT s.date,s.fiscal_year,s.product_code,s.customer_code,s.sold_quantity,e.forecast_quantity FROM fact_sales_monthly s LEFT JOIN fact_act_est e USING(fiscal_year,product_code,customer_code)),  
+cte2 as (SELECT * FROM cte1 c1 LEFT JOIN fact_pre_invoice_deductions pr USING(customer_code,fiscal_year)),  
+cte3 as (SELECT * FROM cte2 c2 LEFT JOIN fact_post_invoice_deductions pd USING(date,product_code,customer_code))  
 SELECT * FROM cte3 LEFT JOIN fact_gross_price gp USING(product_code,fiscal_year)**
 
 *--Joining cte3(previously joined table) and fact_gross_price tables using product_code and fiscal_year to fetch the products gross_price.Performing left join to fetch all transactions from the left table*
