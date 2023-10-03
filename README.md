@@ -29,7 +29,7 @@ In the data model, every table has a relationship with at least one other table 
 
 3. Using CTEs, as we have to join multiple tables continuously.
 
-**with cte1 as (SELECT s.date,s.fiscal_year,s.product_code,s.customer_code,s.sold_quantity,e.forecast_quantity FROM fact_sales_monthly s LEFT JOIN fact_act_est e USING(fiscal_year,product_code,customer_code))
+**with cte1 as (SELECT s.date,s.fiscal_year,s.product_code,s.customer_code,s.sold_quantity,e.forecast_quantity FROM fact_sales_monthly s LEFT JOIN fact_act_est e USING(fiscal_year,product_code,customer_code))  
 SELECT * FROM cte1 c1 LEFT JOIN fact_pre_invoice_deductions pr USING(customer_code,fiscal_year)**
 
 *--Joining cte1(previously joined table) and fact_pre_invoice_deductions tables to fetch pre_invoice_discount_percent of products. Performing left join to fetch all transactions from the left table*
