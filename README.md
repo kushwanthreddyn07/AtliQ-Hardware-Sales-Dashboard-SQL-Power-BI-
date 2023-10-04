@@ -140,7 +140,7 @@ SELECT * FROM cte7 )**
 
 Here fact_transactions table is in the middle and dimension tables are surrounded, this schema or this formation is known as Star Schema. Now we can easily understand our model and the connections between all the tables. All dimension tables are connected with the fact table with the one-may relationship.
 
-![](https://github.com/kushwanthreddyn07/Sales-Dashboard-Power-BI/blob/main/git%20hub%20presentation.png)
+
 
 
 
