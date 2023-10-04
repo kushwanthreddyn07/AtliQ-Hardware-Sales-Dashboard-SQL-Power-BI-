@@ -147,12 +147,11 @@ SELECT * FROM cte7 )**
 
 *--We need to sort the calendar_date_month column with fiscal_month_number in order to get September as the first month and August as the last month*
 
-![caluculated date column](https://github.com/kushwanthreddyn07/Sales-Dashboard-Power-BI/assets/144375008/9b2000be-0e69-47c9-b050-853957990a60)  
+![caluculated date column](https://github.com/kushwanthreddyn07/Sales-Dashboard-Power-BI/assets/144375008/9b2000be-0e69-47c9-b050-853957990a60)    
 
 
 
-##Data Modelling  
-
+## Data Modelling   
 
 1. All our tables are ready, now we can establish the relationship between the fact table and dimension tables. Our data model will be Star Schema as we have transformed all fact tables into only one fact table, we can easily use the Star Schema data model.
 
