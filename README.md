@@ -16,7 +16,7 @@ There are 7 fact tables, and information from each table is needed. The current 
 ## Skills Demonstrated
 The following features were used:-
 1. SQL:- Joins, Cte
-2. Power BI:- Bookmarks, Buttons, Filters, DAX, Modelling, Measures, Page Navigations, Tab Navigations, Power Query.
+2. Power BI:- Power Query, Modelling, Calculated Columns, Bookmarks, DAX, Buttons, Filters, Measures, Page Navigations, Tab Navigations.
 
 ## Data Transformation and Data Modelling
 1. As we have seen in the above picture, we have a messy data model, a clean and understandable data model must be created. 
@@ -108,13 +108,49 @@ SELECT * FROM cte7 )**
 
 7. Fetching fact table fact_transactions and dimension tables dim_product and dim_customer from My SQL database to Powe BI. We can directly transform data and can perform required transformations in power query then we can load data.
 
-8. In the fact_transaction table changed the type of fiscal_year column and customer_code column to text and we will not perform any aggregations on these columns. There is no need to perform any major data transformations as we already clean data. We need to create a date table.
+8. In the fact_transaction table, changed the type of fiscal_year column and customer_code column to text and we will not perform any aggregations on these columns. There is no need to perform any major data transformations as we already have clean data. We only need to create an extra date table.
  
 9. To create a date table we need all the dates that are in the fact_transaction table. We can get the minimum date and maximum date from the fact_transaction table and pass it to create a date table with all the dates that are in the fact_transaction.
    
 ![date table creation](https://github.com/kushwanthreddyn07/Sales-Dashboard-Power-BI/assets/144375008/263a5b6b-2fc1-43a4-9ee6-aa8afce7de61)
 
-11. All the dates in the fact_transaction table are the start of the month. So we will convert all calendar_dates to the start of the month and remove duplicates.
+11. All the dates in the fact_transaction table are the start of the month. So we will convert all dates in dim_date to the start of the month and remove duplicates so that we will have dates as the start of the month for each year. All the dates are in the calendar_date column.
+    
+
+**fiscal_date = Date.AddMonths([calendar_date],4)**  
+
+**fiscal_year = Date.Year([fiscal_date])**  
+
+**fiscal_month_number = Date.Month([fiscal_date])**
+
+![date table](https://github.com/kushwanthreddyn07/Sales-Dashboard-Power-BI/assets/144375008/760dd9c6-d4ac-4da5-92a1-a7571c900b81)
+
+ 12. Close and load all these tables. In the dim_date table, we need to create another column to represent the month, as the fiscal year starts in September and ends in August we need September as the first month and August as the last month.
+     
+**calendar_date_month = FORMAT(dim_date[calendar_date],"MMM")**
+
+*--We need to sort the calendar_date_month column with fiscal_month_number in order to get September as the first month and August as the last month*
+
+![caluculated date column](https://github.com/kushwanthreddyn07/Sales-Dashboard-Power-BI/assets/144375008/9b2000be-0e69-47c9-b050-853957990a60)
+
+13. All our tables are ready, now we can establish the relationship between the fact table and dimension tables. Our data model will be Star Schema as we have only one fact table, we can easily use the Star Schema data model.
+
+![star schema](https://github.com/kushwanthreddyn07/Sales-Dashboard-Power-BI/assets/144375008/ef0b89a9-16b6-4961-baca-8a0fc5ad1ec3)
+
+
+Here fact_transactions table is in the middle and dimension tables are surrounded, this schema or this formation is known as Star Schema. Now we can easily understand our model and the connections between all the tables. All dimension tables are connected with the fact table with the one-may relationship.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
