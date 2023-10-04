@@ -1,6 +1,6 @@
 # SQL - Power BI Sales Dashboard
 ## Introduction 
-In this project, I have created a dynamic sales dashboard designed to provide you with a comprehensive view of your sales performance through Key Performance Indicators (KPIs), while also giving you the power to delve deeper into your product and customer data.
+Atliq Hardware is a computer hardware manufacturing company that has customers globally. In this project, I have created a dynamic sales dashboard designed to provide you with a comprehensive view of your sales performance through Key Performance Indicators (KPIs), while also giving you the power to delve deeper into your product and customer data. 
 ## Problem Statement 
 All sales data is in  7 different fact tables and 2 dimension tables dim_product and dim_customer.
 
@@ -18,8 +18,8 @@ The following features were used:-
 1. SQL:- Joins, Cte
 2. Power BI:- Bookmarks, Buttons, Filters, DAX, Modelling, Measures, Page Navigations, Tab Navigations, Power Query.
 
-## Data Modelling
-1. As we have seen in the above picture, we have a messy data model, a clean  and understandable data model must be created. 
+## Data Transformation and Data Modelling
+1. As we have seen in the above picture, we have a messy data model, a clean and understandable data model must be created. 
 In the data model, every table has a relationship with at least one other table except the fact_freight_cost table. If we observe carefully fact_freight_cost table has a market column and the dim_customer table also has a market column, so these two tables can be connected, but freight cost will be changed based on customer and fiscal year. We need to connect the fact_freight_cost table with market and fiscal_year, then we will get the correct relationship.
 2. We can take fact_sales_monthly tables as the base table because it has all the sales transaction data, and join all the other tables such that we will only have one fact table with all the required data.
 
@@ -95,11 +95,24 @@ SELECT * FROM cte7 )**
 
 *--Creating view fact_transactionss for storing all the required data that is joined into a single table. We can store it as a table but this data set has around 600k rows, it would be easier to store a view than to store a table with so many columns and rows*
 
-![fact_transaction1](https://github.com/kushwanthreddyn07/Sales-Dashboard-Power-BI/assets/144375008/7e36723e-ab11-4042-ac51-d9c11d80bb01)
 
-Now we have all the required columns from 7 fact tables stored in a single table fact_transactions. We can easily create a star schema data model with fact_transactions as the fact table and dim_product, and dim_customer tables as dimension tables. 
+![fact_transactions](https://github.com/kushwanthreddyn07/Sales-Dashboard-Power-BI/assets/144375008/17991b69-af39-4a12-aa96-56332a2f32bc)
 
+4. Now we have all the required columns from 7 fact tables stored in a single table fact_transactions. We can easily create a star schema data model with fact_transactions as the fact table and dim_product, and dim_customer tables as dimension tables. 
 
+5. In the fact_transaction table, we have transaction_date and fiscal_year columns. For Atliq Hardware Fiscal year starts from September 1st to August 31st. For example, if we take the transaction date 2019-09-01 for this date fiscal_year is showing as 2020. The fiscal year 2020 starts on September 1st, 2019, and ends on August 31st, 2020. Similarly fiscal year 2022 starts on September 1st, 2021, and ends on August 31st, 2022. If we add 4 months to the transaction date we can get the fiscal_date of the transaction. We will create a date table so that it will be easy for us to create any sort of time intelligence function.
+
+6. First we should load data into Power BI then we can create any required transformations and can create a date dimension table. 
+
+![data into power bi](https://github.com/kushwanthreddyn07/Sales-Dashboard-Power-BI/assets/144375008/bdee17ab-27eb-4ea5-a088-c745ab4c07bc)
+
+7. Fetching fact table fact_transactions and dimension tables dim_product and dim_customer from My SQL database to Powe BI. We can directly transform data and can perform required transformations in power query then we can load data.
+
+8. In the fact_transaction table changed the type of fiscal_year column and customer_code column to text and we will not perform any aggregations on these columns. There is no need to perform any major data transformations as we already clean data. We need to create a date table.
+ 
+9. To create a date table we need all the dates that are in the fact_transaction table. We can get the minimum date and maximum date from the fact_transaction table and pass it to create a date table with all the dates that are in the fact_transaction.
+   
+![date table creation](https://github.com/kushwanthreddyn07/Sales-Dashboard-Power-BI/assets/144375008/263a5b6b-2fc1-43a4-9ee6-aa8afce7de61)
 
 
 
