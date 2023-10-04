@@ -114,5 +114,7 @@ SELECT * FROM cte7 )**
    
 ![date table creation](https://github.com/kushwanthreddyn07/Sales-Dashboard-Power-BI/assets/144375008/263a5b6b-2fc1-43a4-9ee6-aa8afce7de61)
 
+11. All the dates in the fact_transaction table are the start of the month. So we will convert all calendar_dates to the start of the month and remove duplicates.
+
 
 
