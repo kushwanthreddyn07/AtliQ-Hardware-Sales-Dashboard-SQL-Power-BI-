@@ -75,7 +75,7 @@ cte3 as (SELECT * FROM cte2 c2 LEFT JOIN fact_post_invoice_deductions pd USING(d
 cte4 as (SELECT * FROM cte3 LEFT JOIN fact_gross_price gp USING(product_code,fiscal_year))  
 SELECT c4.*,c.market  FROM cte4 c4 LEFT JOIN dim_customer c USING(customer_code)**
 
-*--Joining cte4(previously joined table) and dim_customer tables to fetch the market of customers. We already have the fiscal year column in the cte4 table, if we bring the market column into this table using the customer code column, then I can join the fact_freight_cost table easily. c4* means all columns from the cte4 table and c.market means only market column from dim_customer table. Performing left join to fetch all transactions from the left table*
+*--Joining cte4(previously joined table) and dim_customer tables to fetch the market of customers. We already have the fiscal year column in the cte4 table, if we bring the market column into this table using the customer code column, then I can join the fact_freight_cost table easily, c4* means all columns from the cte4 table and c.market means only market column from dim_customer table. Performing left join to fetch all transactions from the left table*
 
 
 
