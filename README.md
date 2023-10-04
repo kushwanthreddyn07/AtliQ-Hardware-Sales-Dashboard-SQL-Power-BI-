@@ -154,11 +154,62 @@ SELECT * FROM cte7 )**
 ## Data Modelling   
 
 1. All our tables are ready, now we can establish the relationship between the fact table and dimension tables. Our data model will be Star Schema as we have transformed all fact tables into only one fact table, we can easily use the Star Schema data model.
+  
+**Connections:-
+-> fact_transcation and dim_product tables are connected on product_code column.
+-> fact_transcation and dim_customer tables are connected on customer_code column.
+-> fact_transcation and dim_date tables are connected on transaction_date column from fact table and calendar_date column from dimension table**
 
 ![star schema](https://github.com/kushwanthreddyn07/Sales-Dashboard-Power-BI/assets/144375008/ef0b89a9-16b6-4961-baca-8a0fc5ad1ec3)
 
 
-Here fact_transactions table is in the middle and dimension tables are surrounded, this schema or this formation is known as Star Schema. Now we can easily understand our model and the connections between all the tables. All dimension tables are connected with the fact table with the one-many relationship. Now it will be very easy for us to fetch the related data across different tables. 
+2. Here fact_transactions table is in the middle and dimension tables are surrounded, this schema or this formation is known as Star Schema. Now we can easily understand our model and the connections between all the tables. All dimension tables are connected with the fact table with the one-many relationship. Now it will be very easy for us to fetch the related data across different tables.
+
+
+## Visualization  
+
+The report comprises 3 pages:
+1. Overview 
+2. Products
+3. Customers
+
+Features:
+1. Each page has filters like date filters, markets, products, etc to filter data accordingly.
+2. 3 tabs on the Overview page Net Sales, COGs, and Profits are buttons with a hovering effect and each navigates to the trend charts with the respective name.
+3. 3 tabs on the top right corner are buttons with a hovering effect and each navigates to the page with the respective name. The white shade on these buttons represents the current page.
+4. Green color represents Gross Profit and Blue color represents Net Sales over all pages.
+
+
+## Analysis
+
+### Overview  
+
+![SQL-Power BI Sales Dashboard_page-0001](https://github.com/kushwanthreddyn07/Sales-Dashboard-Power-BI/assets/144375008/6070b4df-ab4e-4eca-992d-94acc50fb855)
+
+-The Indian market is generating the highest net sales, but it is not returning the highest gross margin percent(the percentage of a company's revenue retained as gross profit). The Netherlands is returning the highest gross margin percent.
+-Expanding markets that have the potential to return high gross margin percentages can return high profits.
+-In India and most other markets, after drilling down of gross profit trend chart into months we can see the highest profits are generated in the month of December and the lowest profit is in the month of March. Whereas Brazil and Mexico are generating the highest profits in the months of June and July.
+-Year-month and Market filters can be used to do a deeper analysis, and trends charts can be drilled down to see the trends over a specific year, quarter, or month.
+
+
+
+### Products
+
+![SQL-Power BI Sales Dashboard_page-0002](https://github.com/kushwanthreddyn07/Sales-Dashboard-Power-BI/assets/144375008/78eaa2b4-622a-4c2e-b282-4c1c760cdea2)
+
+
+-Products in the N&S(Networking and Storage) division have consistently underperformed in terms of sales quantity over the years.
+-Product, Year-month, and Product Division filters can be used to do a deeper analysis.
+
+
+### Customers  
+
+![SQL-Power BI Sales Dashboard_page-0003](https://github.com/kushwanthreddyn07/Sales-Dashboard-Power-BI/assets/144375008/e49d139d-53ba-45d7-b3c2-d1fa26cfc937)
+
+-AtliQ Exclusive customers are delivering impressive results for the business. They are generating the second-highest profit and have the highest gross margin percentage, all while maintaining a relatively low discount percentage of 40.86%.
+-In the year 2022, the customer named Nova received the highest discount at 58.58%. However, despite receiving the highest discount, Nova is providing the least profit among all the customers
+-There has been no increase in the number of customers in the North America (NA) region over the past three years.
+-With filters, we can perform deeper analysis by region, year, and platform.
 
 
 
