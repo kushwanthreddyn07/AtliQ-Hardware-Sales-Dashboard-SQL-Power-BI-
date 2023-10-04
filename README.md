@@ -28,7 +28,7 @@ There are 7 fact tables, and information from each table is needed. The current 
 The following features were used:-
 1. SQL:- Joins, Cte
 2. Power BI:- Power Query, Modelling, Calculated Columns, Bookmarks, DAX, Buttons, Filters, Measures, Page Navigations, Tab Navigations.
-3. 
+
 
 ## Data Transformation   
 
