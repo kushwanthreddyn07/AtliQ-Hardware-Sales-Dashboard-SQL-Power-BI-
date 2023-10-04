@@ -1,4 +1,4 @@
-# SQL - Power BI Sales Dashboard  
+# AtliQ Hardware Sales Dashboard  
 
 
 ## Introduction   
