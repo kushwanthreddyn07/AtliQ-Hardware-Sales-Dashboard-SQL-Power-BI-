@@ -33,9 +33,9 @@ The following features were used:-
 ## Data Transformation   
 
 
-1. As we have seen in the above picture, we have a messy data model, to get a clean and understandable data model data transformation must be done.
+1. As we have seen in the above picture, we have a messy data model, to get a clean and understandable data model, data transformation must be done.
    
-2. In the data model, every table has a relationship with at least one other table except the fact_freight_cost table. If we observe carefully fact_freight_cost table has a market column and the dim_customer table also has a market column, so these two tables can be connected, but freight cost will also be changed based on fiscal year. We need to connect the fact_freight_cost table with market and fiscal_year, then we will get the correct data.
+2. In the data model, every table has a relationship with at least one other table except the fact_freight_cost table. If we observe carefully fact_freight_cost table has a market column and the dim_customer table also has a market column, so these two tables can be connected, but freight cost will also be changed based on fiscal year. We need to connect the fact_freight_cost table on market and fiscal_year, then we will get the correct data.
    
 3. We can take fact_sales_monthly tables as the base table because it has all the sales transaction data, and join all the other tables such that we will only have one fact table with all the required data.
 
