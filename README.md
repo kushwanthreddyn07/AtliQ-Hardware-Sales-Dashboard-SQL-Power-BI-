@@ -1,4 +1,4 @@
-# AtliQ Hardware Sales Dashboard  
+# AtliQ Hardwares Sales Dashboard  
 
 
 ## Introduction   
