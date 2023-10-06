@@ -7,7 +7,9 @@
 Atliq Hardware is a computer hardware manufacturing company that has customers globally. In this project, I have created a dynamic sales dashboard designed to provide you with a comprehensive view of sales performance through Key Performance Indicators (KPIs), while also giving you the power to delve deeper into product and customer data.  
 
 
-## Problem Statement   
+## Problem Statement  
+
+Atliq Hardware, a global computer hardware manufacturing company, is committed to enhancing its sales performance analysis and decision-making process. The company seeks to leverage data-driven insights to gain a comprehensive view of its sales performance and explore key performance indicators (KPIs) while maintaining the ability to investigate product and customer data in greater detail. To address this need, the project aims to develop a Dynamic Sales Dashboard.
 
 
 All sales data is in  7 different fact tables and 2 dimension tables dim_product and dim_customer.
