@@ -157,7 +157,7 @@ SELECT * FROM cte7 )**
 
 1. All our tables are ready, now we can establish the relationship between the fact table and dimension tables. Our data model will be Star Schema as we have transformed all fact tables into only one fact table, we can easily use the Star Schema data model.
   
-**Connections:-
+**Connections:  
 -> fact_transcation and dim_product tables are connected on product_code column.  
 -> fact_transcation and dim_customer tables are connected on customer_code column.  
 -> fact_transcation and dim_date tables are connected on transaction_date column from fact table and calendar_date column from dimension table**
