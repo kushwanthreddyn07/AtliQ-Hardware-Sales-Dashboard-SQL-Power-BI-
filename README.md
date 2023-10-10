@@ -16,7 +16,7 @@ All sales data is in  7 different fact tables and 2 dimension tables dim_product
 
 ![tables](https://github.com/kushwanthreddyn07/Sales-Dashboard-Power-BI/assets/144375008/2912f4c8-b3b1-450f-9f22-1f8c601de92e)
 
-First, need to extract all the useful data into the Power BI platform.
+
 
 ![datamodel23](https://github.com/kushwanthreddyn07/Sales-Dashboard-Power-BI/assets/144375008/fc97727b-13a2-42df-8cc3-a4e62d11296f)
 
