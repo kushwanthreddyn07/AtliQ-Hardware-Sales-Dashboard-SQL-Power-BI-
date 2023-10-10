@@ -229,7 +229,7 @@ Over the past three years, the company has experienced significant growth in bot
 
 
 
-![360_F_505390776_8ilykzGiVSpIjUqdEXFhDY1ACRJZPDRD](https://github.com/kushwanthreddyn07/Sales-Dashboard-Power-BI/assets/144375008/f0e86602-5f18-42c6-a9f5-c47095f31e5e)
+
 
 
 
